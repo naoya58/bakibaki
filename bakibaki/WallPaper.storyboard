@@ -20,35 +20,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-21-ZG9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-xp-xFl">
-                                <rect key="frame" x="29" y="41" width="46" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-xp-xFl">
+                                <rect key="frame" x="32" y="36" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
                                     <action selector="CloseButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="rHF-Js-yW6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ0-Eu-GTD">
-                                <rect key="frame" x="313" y="41" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Help"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-9U-Ydk">
-                                <rect key="frame" x="203" y="609" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-9U-Ydk">
+                                <rect key="frame" x="253" y="621" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-DM-VQ1">
-                                <rect key="frame" x="309" y="609" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-DM-VQ1">
+                                <rect key="frame" x="303" y="621" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5W7-DM-VQ1" secondAttribute="trailing" constant="16" id="1Yb-XV-kBV"/>
+                            <constraint firstItem="wXc-xp-xFl" firstAttribute="top" secondItem="u4p-jm-wIH" secondAttribute="topMargin" constant="16" id="7v6-4v-OP1"/>
                             <constraint firstAttribute="bottom" secondItem="ZsZ-21-ZG9" secondAttribute="bottom" id="GW2-PV-SJb"/>
+                            <constraint firstItem="qPw-9U-Ydk" firstAttribute="bottom" secondItem="5W7-DM-VQ1" secondAttribute="bottom" id="IIm-XR-fzS"/>
                             <constraint firstAttribute="trailing" secondItem="ZsZ-21-ZG9" secondAttribute="trailing" id="LG2-as-UI7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="5W7-DM-VQ1" secondAttribute="bottom" constant="16" id="Sxj-Fb-hh6"/>
                             <constraint firstItem="ZsZ-21-ZG9" firstAttribute="top" secondItem="u4p-jm-wIH" secondAttribute="top" id="XPn-Bj-fxT"/>
+                            <constraint firstItem="5W7-DM-VQ1" firstAttribute="leading" secondItem="qPw-9U-Ydk" secondAttribute="trailing" constant="16" id="YuJ-yW-Zg9"/>
+                            <constraint firstItem="wXc-xp-xFl" firstAttribute="leading" secondItem="u4p-jm-wIH" secondAttribute="leadingMargin" constant="16" id="o3o-ar-ho9"/>
                             <constraint firstItem="ZsZ-21-ZG9" firstAttribute="leading" secondItem="u4p-jm-wIH" secondAttribute="leading" id="ueK-dv-LGh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4l7-nr-98J"/>
