@@ -1,42 +1,28 @@
 //
-//  ViewController.swift
+//  WallPapersViewController.swift
 //  bakibaki
 //
-//  Created by Naoya Taniguchi on 2018/10/28.
+//  Created by Naoya Taniguchi on 2018/11/03.
 //  Copyright © 2018年 Naoya Taniguchi. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,
-UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
-
-    @IBOutlet var TimeLabel: UILabel!
+class WallPapersViewController: UIViewController,UICollectionViewDataSource,
+UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
+    var receiveNum: Int?
+
     @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        
         collectionView.delegate = self
         
-        //スクロール停止
-        collectionView.isScrollEnabled = false
-        
-        //現在の日付を取得
-        let date:Date = Date()
-        
-        //日付のフォーマットを指定する。
-        let format = DateFormatter()
-        format.dateFormat = "HH:mm"
-        
-        //日付をStringに変換する
-        let sDate = format.string(from: date)
-        
-        TimeLabel.text = sDate
-        
-        
+        // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -64,7 +50,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 9
+        return 30
     }
     
     
@@ -87,26 +73,43 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         return CGSize(width: widthSize, height: heightSize)
     }
     
-    // Cell が選択された場合
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let num = indexPath.row
-        
-        print("num",num)
-        
-        let WallPapersSB = UIStoryboard(name: "WallPapers", bundle: nil)
-        let navigationVC = WallPapersSB.instantiateInitialViewController() as! UINavigationController
-        let WallPapersVC = navigationVC.topViewController as! WallPapersViewController
-        
-        WallPapersVC.receiveNum = num
-        
-        present(navigationVC, animated: true) {
-            print("go to WallPapers")
+    @IBAction func backButton(_ sender: Any) {
+        let MainSB = UIStoryboard(name: "Main", bundle: nil)
+        let VC = MainSB.instantiateInitialViewController()
+        present(VC!, animated: true) {
+            print("go to MainStoryboard")
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let num = indexPath.row
+
+        print("num",num)
+        
+        let WallPaperSB = UIStoryboard(name: "WallPaper", bundle: nil)
+        let WallPaperVC = WallPaperSB.instantiateInitialViewController() as! WallPaperViewController
+        
+        WallPaperVC.receiveNum = num
+        
+        present(WallPaperVC, animated: true) {
+            print("go to WallPaper")
+        }
+        
+    }
+    
+    
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
-
-
-
-
