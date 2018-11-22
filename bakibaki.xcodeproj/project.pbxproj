@@ -17,6 +17,7 @@
 		8E3F97DA218CB3940065EF6D /* WallPapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97D9218CB3940065EF6D /* WallPapersViewController.swift */; };
 		8E3F97DC218F021F0065EF6D /* WallPaper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F97DB218F021E0065EF6D /* WallPaper.storyboard */; };
 		8E3F97DE218F025C0065EF6D /* WallPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97DD218F025C0065EF6D /* WallPaperViewController.swift */; };
+		8ECC4971219C060D00BF624B /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8ECC4970219C060D00BF624B /* wallpaper.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8E3F97D9218CB3940065EF6D /* WallPapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPapersViewController.swift; sourceTree = "<group>"; };
 		8E3F97DB218F021E0065EF6D /* WallPaper.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WallPaper.storyboard; sourceTree = "<group>"; };
 		8E3F97DD218F025C0065EF6D /* WallPaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPaperViewController.swift; sourceTree = "<group>"; };
+		8ECC4970219C060D00BF624B /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3F97D5218C798B0065EF6D /* blue.png */,
+				8ECC4970219C060D00BF624B /* wallpaper.jpg */,
 				8E3F97C321858AFE0065EF6D /* AppDelegate.swift */,
 				8E3F97C521858AFE0065EF6D /* ViewController.swift */,
 				8E3F97C721858AFE0065EF6D /* Main.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ECC4971219C060D00BF624B /* wallpaper.jpg in Resources */,
 				8E3F97D8218CB32C0065EF6D /* WallPapers.storyboard in Resources */,
 				8E3F97CE21858B060065EF6D /* LaunchScreen.storyboard in Resources */,
 				8E3F97CB21858B060065EF6D /* Assets.xcassets in Resources */,
