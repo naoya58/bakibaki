@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Accounts
 
 class WallPaperViewController: UIViewController {
     
-
-    @IBOutlet var UIImage: UIImageView!
+@IBOutlet var WallPaperUIImage: UIImageView!
     
     var receiveNum: Int?
 
@@ -24,7 +24,7 @@ class WallPaperViewController: UIViewController {
     @IBAction func SaveButton(_ sender: Any) {
 
         // UIImage を取得
-        let targetImage = UIImage.image!
+        let targetImage = WallPaperUIImage.image!
 
         // UIImage の画像をカメラロールに画像を保存
         UIImageWriteToSavedPhotosAlbum(targetImage, self, #selector(self.showResultOfSaveImage(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -63,6 +63,26 @@ class WallPaperViewController: UIViewController {
         present(navigationVC, animated: true) {
             print("go to WallPapers")
         }
+    }
+    @IBAction func ShareButton(_ sender: Any) {
+        
+        // 共有する項目
+        let text = ""
+        let adText = "#bakibaki"
+        let targetImage = WallPaperUIImage.image!
+        let activityItems = [text,adText,targetImage] as [Any]
+        
+        // 初期化処理
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        
+        // 使用しないアクティビティタイプ
+        let excludedActivityTypes = [UIActivity.ActivityType.postToTencentWeibo,
+                                     UIActivity.ActivityType.postToWeibo]
+        
+        activityVC.excludedActivityTypes = excludedActivityTypes
+        
+        // UIActivityViewControllerを表示
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     /*

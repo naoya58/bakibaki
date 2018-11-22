@@ -37,6 +37,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-DM-VQ1">
                                 <rect key="frame" x="303" y="621" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="ShareButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="1Vl-wt-RSY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,7 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="4l7-nr-98J"/>
                     </view>
                     <connections>
-                        <outlet property="UIImage" destination="ZsZ-21-ZG9" id="fd3-Rk-S1H"/>
+                        <outlet property="WallPaperUIImage" destination="ZsZ-21-ZG9" id="7ZJ-lx-xmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P74-Uc-gMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
