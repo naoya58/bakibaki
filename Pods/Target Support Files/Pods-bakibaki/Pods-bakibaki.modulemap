@@ -1,0 +1,6 @@
+framework module Pods_bakibaki {
+  umbrella header "Pods-bakibaki-umbrella.h"
+
+  export *
+  module * { export * }
+}
