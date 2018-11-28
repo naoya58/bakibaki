@@ -8,12 +8,16 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController,UICollectionViewDataSource,
 UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
 
     @IBOutlet var TimeLabel: UILabel!
     
     @IBOutlet var collectionView: UICollectionView!
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +39,20 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         let sDate = format.string(from: date)
         
         TimeLabel.text = sDate
-        
-        
     }
     
+    
+    @IBAction func NextButton(_ sender: Any) {
+        //画面遷移
+        let PostSB = UIStoryboard(name: "Post", bundle: nil)
+        let PostVC = PostSB.instantiateInitialViewController() as! PostViewController
+        
+        present(PostVC, animated: true) {
+            print("go to Post")
+        }
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
@@ -64,7 +78,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 9
+        return 15
     }
     
     
@@ -82,7 +96,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         let space: CGFloat = 1.0
         
         let widthSize:CGFloat = UIScreen.main.bounds.width/3 - space
-        let heightSize:CGFloat = UIScreen.main.bounds.height/3 - space
+        let heightSize:CGFloat = UIScreen.main.bounds.height/5 - space
         
         return CGSize(width: widthSize, height: heightSize)
     }
@@ -90,7 +104,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let num = indexPath.row
+        let num = indexPath.row + 1
         
         print("num",num)
         

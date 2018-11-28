@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import FirebaseStorage
+import Pring
 
 class WallPapersViewController: UIViewController,UICollectionViewDataSource,
 UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     var receiveNum: Int?
+    var dataSource: DataSource<Image>?
+    
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -19,27 +23,42 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
         super.viewDidLoad()
         
         collectionView.dataSource = self
-        
         collectionView.delegate = self
+        
+        guard let receiveNum = receiveNum else {return}
+        
+        self.dataSource = Image
+            .order(by: \Image.updatedAt)
+            .where(\Image.num, isEqualTo: receiveNum)
+            .dataSource().on({ (snapshot, changes) in
+                guard let collectionView: UICollectionView = self.collectionView else { return }
+                switch changes {
+                case .initial:
+                    collectionView.reloadData()
+                case .update(let deletions, let insertions, let modifications):
+                    collectionView.performBatchUpdates({
+                        collectionView.insertItems(at: insertions.map { IndexPath(row: $0, section: 0) })
+                        collectionView.deleteItems(at: deletions.map { IndexPath(row: $0, section: 0) })
+                        collectionView.reloadItems(at: modifications.map { IndexPath(row: $0, section: 0) })
+                    }, completion: nil)
+                 case .error(let error):
+                    debugPrint(error)
+                }
+            }).listen()
+
+    
         
         // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath) as! WallPaperPreviewCell
         
-        // "Cell" はストーリーボードで設定したセルのID
-        let testCell:UICollectionViewCell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath)
-        
-        // Tag番号を使ってImageViewのインスタンス生成
-        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
-        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-        let cellImage = UIImage(named: "blue")
-        // UIImageをUIImageViewのimageとして設定
-        imageView.image = cellImage
-        
-        return testCell
+        guard let imageData = self.dataSource?[indexPath.item] else { return cell}
+        cell.configure(data: imageData)
+        return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -50,14 +69,10 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 30
+        return self.dataSource?.count ?? 0
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     // Screenサイズに応じたセルサイズを返す
     // UICollectionViewDelegateFlowLayoutの設定が必要
@@ -84,14 +99,14 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let num = indexPath.row
 
-        print("num",num)
+        let image = dataSource?[indexPath.item]
         
         let WallPaperSB = UIStoryboard(name: "WallPaper", bundle: nil)
         let WallPaperVC = WallPaperSB.instantiateInitialViewController() as! WallPaperViewController
         
-        WallPaperVC.receiveNum = num
+
+        WallPaperVC.receiveImage = image
         
         present(WallPaperVC, animated: true) {
             print("go to WallPaper")

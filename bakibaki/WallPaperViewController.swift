@@ -8,15 +8,31 @@
 
 import UIKit
 import Accounts
+import FirebaseStorage
+import Pring
 
 class WallPaperViewController: UIViewController {
     
-@IBOutlet var WallPaperUIImage: UIImageView!
+    @IBOutlet var imageView: UIImageView!
     
-    var receiveNum: Int?
+    
+    var receiveImage: Image?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let file = receiveImage?.imageFile else { return }
+        
+        let _ = file.getData { (data, error) in
+            
+            if let data = data {
+                self.imageView.image = UIImage(data: data)
+            } else {
+                print("not found image")
+            }
+        }
+    
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,7 +40,7 @@ class WallPaperViewController: UIViewController {
     @IBAction func SaveButton(_ sender: Any) {
 
         // UIImage を取得
-        let targetImage = WallPaperUIImage.image!
+        let targetImage = imageView.image!
 
         // UIImage の画像をカメラロールに画像を保存
         UIImageWriteToSavedPhotosAlbum(targetImage, self, #selector(self.showResultOfSaveImage(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -69,7 +85,7 @@ class WallPaperViewController: UIViewController {
         // 共有する項目
         let text = ""
         let adText = "#bakibaki"
-        let targetImage = WallPaperUIImage.image!
+        let targetImage = imageView.image!
         let activityItems = [text,adText,targetImage] as [Any]
         
         // 初期化処理

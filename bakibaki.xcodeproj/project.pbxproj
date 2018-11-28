@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E3F0BC321AACBA400FF9E3D /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F0BC221AACBA400FF9E3D /* Post.storyboard */; };
+		8E3F0BC521AACBDF00FF9E3D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F0BC421AACBDF00FF9E3D /* PostViewController.swift */; };
 		8E3F97C421858AFE0065EF6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97C321858AFE0065EF6D /* AppDelegate.swift */; };
 		8E3F97C621858AFE0065EF6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97C521858AFE0065EF6D /* ViewController.swift */; };
 		8E3F97C921858AFE0065EF6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F97C721858AFE0065EF6D /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 		8E3F97DA218CB3940065EF6D /* WallPapersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97D9218CB3940065EF6D /* WallPapersViewController.swift */; };
 		8E3F97DC218F021F0065EF6D /* WallPaper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3F97DB218F021E0065EF6D /* WallPaper.storyboard */; };
 		8E3F97DE218F025C0065EF6D /* WallPaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F97DD218F025C0065EF6D /* WallPaperViewController.swift */; };
+		8E68317C21AD3E2A000576B2 /* WallPaperPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E68317B21AD3E2A000576B2 /* WallPaperPreviewCell.swift */; };
+		8EAEE54121A6FCE300DEB64D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAEE54021A6FCE300DEB64D /* Image.swift */; };
 		8ECC4971219C060D00BF624B /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8ECC4970219C060D00BF624B /* wallpaper.jpg */; };
 		8EF40C0E219E0395001CF647 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EF40C0D219E0394001CF647 /* GoogleService-Info.plist */; };
 		C2656B8326ECD454D5AC1F74 /* Pods_bakibaki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 983FA9F7EAE1701643E19358 /* Pods_bakibaki.framework */; };
@@ -25,6 +29,8 @@
 /* Begin PBXFileReference section */
 		3119C77B9985DA6DA8B19330 /* Pods-bakibaki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bakibaki.release.xcconfig"; path = "Pods/Target Support Files/Pods-bakibaki/Pods-bakibaki.release.xcconfig"; sourceTree = "<group>"; };
 		3F0B0C3FF9D7935CA80CC1D8 /* Pods-bakibaki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bakibaki.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bakibaki/Pods-bakibaki.debug.xcconfig"; sourceTree = "<group>"; };
+		8E3F0BC221AACBA400FF9E3D /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
+		8E3F0BC421AACBDF00FF9E3D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8E3F97C021858AFD0065EF6D /* bakibaki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bakibaki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3F97C321858AFE0065EF6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E3F97C521858AFE0065EF6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +43,8 @@
 		8E3F97D9218CB3940065EF6D /* WallPapersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPapersViewController.swift; sourceTree = "<group>"; };
 		8E3F97DB218F021E0065EF6D /* WallPaper.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WallPaper.storyboard; sourceTree = "<group>"; };
 		8E3F97DD218F025C0065EF6D /* WallPaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPaperViewController.swift; sourceTree = "<group>"; };
+		8E68317B21AD3E2A000576B2 /* WallPaperPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallPaperPreviewCell.swift; sourceTree = "<group>"; };
+		8EAEE54021A6FCE300DEB64D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8ECC4970219C060D00BF624B /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		8EF40C0D219E0394001CF647 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		983FA9F7EAE1701643E19358 /* Pods_bakibaki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bakibaki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +88,11 @@
 				8E3F97C321858AFE0065EF6D /* AppDelegate.swift */,
 				8E3F97C521858AFE0065EF6D /* ViewController.swift */,
 				8E3F97C721858AFE0065EF6D /* Main.storyboard */,
+				8E3F0BC421AACBDF00FF9E3D /* PostViewController.swift */,
+				8E3F0BC221AACBA400FF9E3D /* Post.storyboard */,
 				8E3F97D9218CB3940065EF6D /* WallPapersViewController.swift */,
+				8E68317B21AD3E2A000576B2 /* WallPaperPreviewCell.swift */,
+				8EAEE54021A6FCE300DEB64D /* Image.swift */,
 				8E3F97D7218CB32C0065EF6D /* WallPapers.storyboard */,
 				8E3F97DD218F025C0065EF6D /* WallPaperViewController.swift */,
 				8E3F97DB218F021E0065EF6D /* WallPaper.storyboard */,
@@ -173,6 +185,7 @@
 				8EF40C0E219E0395001CF647 /* GoogleService-Info.plist in Resources */,
 				8E3F97D8218CB32C0065EF6D /* WallPapers.storyboard in Resources */,
 				8E3F97CE21858B060065EF6D /* LaunchScreen.storyboard in Resources */,
+				8E3F0BC321AACBA400FF9E3D /* Post.storyboard in Resources */,
 				8E3F97CB21858B060065EF6D /* Assets.xcassets in Resources */,
 				8E3F97C921858AFE0065EF6D /* Main.storyboard in Resources */,
 				8E3F97D6218C798C0065EF6D /* blue.png in Resources */,
@@ -208,12 +221,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-bakibaki/Pods-bakibaki-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,8 +259,11 @@
 			files = (
 				8E3F97C621858AFE0065EF6D /* ViewController.swift in Sources */,
 				8E3F97DA218CB3940065EF6D /* WallPapersViewController.swift in Sources */,
+				8E3F0BC521AACBDF00FF9E3D /* PostViewController.swift in Sources */,
 				8E3F97C421858AFE0065EF6D /* AppDelegate.swift in Sources */,
+				8E68317C21AD3E2A000576B2 /* WallPaperPreviewCell.swift in Sources */,
 				8E3F97DE218F025C0065EF6D /* WallPaperViewController.swift in Sources */,
+				8EAEE54121A6FCE300DEB64D /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
