@@ -7,4 +7,5 @@ target 'bakibaki' do
 
   # Pods for bakibaki
   pod 'Firebase/Core'
+  pod 'Pring'
 end

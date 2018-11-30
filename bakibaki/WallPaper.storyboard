@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-21-ZG9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-21-ZG9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-xp-xFl">
@@ -58,15 +58,12 @@
                         <viewLayoutGuide key="safeArea" id="4l7-nr-98J"/>
                     </view>
                     <connections>
-                        <outlet property="WallPaperUIImage" destination="ZsZ-21-ZG9" id="7ZJ-lx-xmX"/>
+                        <outlet property="imageView" destination="ZsZ-21-ZG9" id="KbA-36-05K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P74-Uc-gMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4574" y="125"/>
+            <point key="canvasLocation" x="-4953" y="84"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="blue.png" width="243" height="207"/>
-    </resources>
 </document>
