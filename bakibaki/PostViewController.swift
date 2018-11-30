@@ -16,7 +16,7 @@ class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet var textField: UITextField!
     
     var pickerView: UIPickerView = UIPickerView()
-    let list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    let list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9","10","11","12","13","14","15"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +83,8 @@ class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
         let image: Image = Image()
         
         var intNum: Int
+        
+        
         if let textNum = textField.text {
             //textField.text 有る時
             intNum = Int(textNum)!
@@ -120,11 +122,12 @@ class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
     }
 
     func back(){
-        let MainSB = UIStoryboard(name: "Main", bundle: nil)
-        let VC = MainSB.instantiateInitialViewController()
-        present(VC!, animated: true) {
-            print("go to MainStoryboard")
-        }
+        self.dismiss(animated: true, completion: nil)
+//        let MainSB = UIStoryboard(name: "Main", bundle: nil)
+//        let VC = MainSB.instantiateInitialViewController()
+//        present(VC!, animated: true) {
+//            print("go to MainStoryboard")
+//        }
 }
     
     func showAlert() {

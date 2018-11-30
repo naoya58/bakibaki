@@ -89,13 +89,10 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     }
     
     @IBAction func backButton(_ sender: Any) {
-        let MainSB = UIStoryboard(name: "Main", bundle: nil)
-        let VC = MainSB.instantiateInitialViewController()
-        present(VC!, animated: true) {
-            print("go to MainStoryboard")
-        }
+       self.dismiss(animated: true, completion: nil)
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
