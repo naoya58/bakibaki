@@ -72,14 +72,17 @@ class WallPaperViewController: UIViewController {
     
     @IBAction func CloseButton(_ sender: Any) {
         
-        let WallPapersSB = UIStoryboard(name: "WallPapers", bundle: nil)
-        let navigationVC = WallPapersSB.instantiateInitialViewController() as! UINavigationController
+        self.dismiss(animated: true, completion: nil)
+
+//        let WallPapersSB = UIStoryboard(name: "WallPapers", bundle: nil)
+//        let navigationVC = WallPapersSB.instantiateInitialViewController() as! UINavigationController
 //        let WallPapersVC = navigationVC.topViewController as! WallPapersViewController
         
-        present(navigationVC, animated: true) {
-            print("go to WallPapers")
-        }
+//        present(navigationVC, animated: true) {
+//            print("go to WallPapers")
+//        }
     }
+    
     @IBAction func ShareButton(_ sender: Any) {
         
         // 共有する項目
