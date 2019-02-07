@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import Pring
+//import SkeletonView
 
 class WallPapersViewController: UIViewController,UICollectionViewDataSource,
 UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
@@ -24,6 +25,21 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+//        collectionView.isSkeletonable = true
+        
+//        collectionView.showAnimatedGradientSkeleton() // Gradient animated
+        
+//        let gradient = SkeletonGradient(baseColor: UIColor.amethyst)
+//        collectionView.showGradientSkeleton(usingGradient: gradient) // Gradient
+        
+       
+        
+//        collectionView.startSkeletonAnimation()
+        
+       
+        
+
         
         guard let receiveNum = receiveNum else {return}
         
@@ -45,12 +61,14 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
                     debugPrint(error)
                 }
             }).listen()
-
-    
+        
+        
         
         // Do any additional setup after loading the view.
     }
     
+    
+    //UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell =
@@ -58,6 +76,9 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
         
         guard let imageData = self.dataSource?[indexPath.item] else { return cell}
         cell.configure(data: imageData)
+        
+//        view.stopSkeletonAnimation()
+        
         return cell
     }
     
@@ -75,6 +96,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     
     // Screenサイズに応じたセルサイズを返す
+    
     // UICollectionViewDelegateFlowLayoutの設定が必要
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -88,12 +110,20 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthSize, height: heightSize)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
     @IBAction func backButton(_ sender: Any) {
        self.dismiss(animated: true, completion: nil)
         
     }
     
-    
+    //画面遷移
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
 
@@ -111,17 +141,39 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
         
     }
     
+    //SkeletonCollectionViewDataSource
+//    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+//        return 1
+//    }
     
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+//        return "Cell"
+//    }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+//extension WallPapersViewController: SkeletonCollectionViewDataSource {
+//
+//
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+//        return "Cell"
+//    }
+//
+//    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return self.dataSource?.count ?? 0
+//    }
+
+    // MARK: - UICollectionViewDataSource
+    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+//        return cell
+//
+//    }
+//}
+

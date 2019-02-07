@@ -18,6 +18,8 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     @IBOutlet var collectionView: UICollectionView!
 
     
+    @IBOutlet var imageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,21 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         let sDate = format.string(from: date)
         
         TimeLabel.text = sDate
+        
+        //画像表示ランダム
+//        let img1 = UIImage(named:"無題45")!
+//        let img2 = UIImage(named:"無題46")!
+//        let img3 = UIImage(named:"無題47")!
+//
+//        let random = arc4random() % 10
+//        print(random)
+//        if ( random > 7 ) {
+//            imageView.image = img1
+//        } else if ( random > 4 ) {
+//            imageView.image = img2
+//        } else {
+//            imageView.image = img3
+//        }
     }
     
     
@@ -60,12 +77,12 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         let testCell:UICollectionViewCell =
             collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath)
         
-        // Tag番号を使ってImageViewのインスタンス生成
-        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
-        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-        let cellImage = UIImage(named: "blue")
-        // UIImageをUIImageViewのimageとして設定
-        imageView.image = cellImage
+//        // Tag番号を使ってImageViewのインスタンス生成
+//        let imageView = testCell.contentView.viewWithTag(1) as! UIImageView
+//        // 画像配列の番号で指定された要素の名前の画像をUIImageとする
+//        let cellImage = UIImage(named: "purple")
+//        // UIImageをUIImageViewのimageとして設定
+//        imageView.image = cellImage
         
         return testCell
     }
@@ -78,7 +95,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         // 要素数を入れる、要素以上の数字を入れると表示でエラーとなる
-        return 15
+        return 12
     }
     
     
@@ -96,7 +113,7 @@ UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
         let space: CGFloat = 1.0
         
         let widthSize:CGFloat = UIScreen.main.bounds.width/3 - space
-        let heightSize:CGFloat = UIScreen.main.bounds.height/5 - space
+        let heightSize:CGFloat = UIScreen.main.bounds.height/4 - space
         
         return CGSize(width: widthSize, height: heightSize)
     }

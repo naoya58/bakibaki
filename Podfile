@@ -8,4 +8,7 @@ target 'bakibaki' do
   # Pods for bakibaki
   pod 'Firebase/Core'
   pod 'Pring'
+  pod 'SVProgressHUD'
+  pod 'FontAwesome.swift'
+  pod "SkeletonView"
 end

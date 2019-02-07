@@ -20,7 +20,7 @@ public protocol AnySubCollection: class, StorageLinkable, Batchable {
     
     var parent: Object? { get set }
     
-    var references: [AnyHashable: Any] { get }
+    var references: [String: Any] { get }
     
     func setValue(_ value: Any?, forKey key: String)
     
@@ -168,6 +168,10 @@ public extension ReferenceCollection {
         return DataSource.Query(self.reference.whereField(keyPath._kvcKeyPathString!, isGreaterThanOrEqualTo: isGreaterThanOrEqualTo), reference: self.reference, hasRealities: false)
     }
 
+    public func `where`(_ keyPath: PartialKeyPath<Element>, arrayContains: Any) -> DataSource<Element>.Query {
+        return DataSource.Query(self.reference.whereField(keyPath._kvcKeyPathString!, arrayContains: arrayContains), reference: self.reference, hasRealities: false)
+    }
+
     public func order(by: PartialKeyPath<Element>) -> DataSource<Element>.Query {
         return DataSource.Query(self.reference.order(by: by._kvcKeyPathString!), reference: self.reference, hasRealities: false)
     }
@@ -198,12 +202,20 @@ public extension ReferenceCollection {
         return DataSource.Query(self.reference.whereField(keyPath, isGreaterThanOrEqualTo: isGreaterThanOrEqualTo), reference: self.reference, hasRealities: false)
     }
 
+    public func `where`(_ keyPath: String, arrayContains: Any) -> DataSource<Element>.Query {
+        return DataSource.Query(self.reference.whereField(keyPath, arrayContains: arrayContains), reference: self.reference, hasRealities: false)
+    }
+
     public func order(by: String) -> DataSource<Element>.Query {
         return DataSource.Query(self.reference.order(by: by), reference: self.reference, hasRealities: false)
     }
 
     public func order(by: String, descending: Bool) -> DataSource<Element>.Query {
         return DataSource.Query(self.reference.order(by: by, descending: descending), reference: self.reference, hasRealities: false)
+    }
+
+    public func filter(using: NSPredicate) -> DataSource<Element>.Query {
+        return DataSource.Query(self.reference.filter(using: using), reference: self.reference, hasRealities: false)
     }
 
     // MARK:
