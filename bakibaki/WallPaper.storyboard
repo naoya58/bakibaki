@@ -20,50 +20,58 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZsZ-21-ZG9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-xp-xFl">
-                                <rect key="frame" x="32" y="36" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXc-xp-xFl">
+                                <rect key="frame" x="32" y="36" width="50" height="50"/>
+                                <state key="normal" image="icons8-back-arrow-50.png"/>
                                 <connections>
-                                    <action selector="CloseButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="rHF-Js-yW6"/>
+                                    <action selector="tapCloseButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="Zor-6R-2SG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-9U-Ydk">
-                                <rect key="frame" x="253" y="621" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-DM-VQ1">
+                                <rect key="frame" x="293" y="601" width="50" height="50"/>
+                                <state key="normal" image="icons8-right-2-50.png"/>
                                 <connections>
-                                    <action selector="SaveButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="Ml6-nX-DKq"/>
+                                    <action selector="tapShareButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="jCZ-Bd-1g3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W7-DM-VQ1">
-                                <rect key="frame" x="303" y="621" width="40" height="30"/>
-                                <state key="normal" title="Share"/>
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-9U-Ydk">
+                                <rect key="frame" x="227" y="601" width="50" height="50"/>
+                                <state key="normal" image="icons8-downloading-updates-filled-50 (1).png"/>
                                 <connections>
-                                    <action selector="ShareButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="1Vl-wt-RSY"/>
+                                    <action selector="tapSaveButton:" destination="ORD-yt-L2P" eventType="touchUpInside" id="GIP-O3-Ky0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="5W7-DM-VQ1" secondAttribute="trailing" constant="16" id="1Yb-XV-kBV"/>
                             <constraint firstItem="wXc-xp-xFl" firstAttribute="top" secondItem="u4p-jm-wIH" secondAttribute="topMargin" constant="16" id="7v6-4v-OP1"/>
                             <constraint firstAttribute="bottom" secondItem="ZsZ-21-ZG9" secondAttribute="bottom" id="GW2-PV-SJb"/>
                             <constraint firstItem="qPw-9U-Ydk" firstAttribute="bottom" secondItem="5W7-DM-VQ1" secondAttribute="bottom" id="IIm-XR-fzS"/>
                             <constraint firstAttribute="trailing" secondItem="ZsZ-21-ZG9" secondAttribute="trailing" id="LG2-as-UI7"/>
                             <constraint firstAttribute="bottomMargin" secondItem="5W7-DM-VQ1" secondAttribute="bottom" constant="16" id="Sxj-Fb-hh6"/>
                             <constraint firstItem="ZsZ-21-ZG9" firstAttribute="top" secondItem="u4p-jm-wIH" secondAttribute="top" id="XPn-Bj-fxT"/>
-                            <constraint firstItem="5W7-DM-VQ1" firstAttribute="leading" secondItem="qPw-9U-Ydk" secondAttribute="trailing" constant="16" id="YuJ-yW-Zg9"/>
                             <constraint firstItem="wXc-xp-xFl" firstAttribute="leading" secondItem="u4p-jm-wIH" secondAttribute="leadingMargin" constant="16" id="o3o-ar-ho9"/>
+                            <constraint firstItem="5W7-DM-VQ1" firstAttribute="leading" secondItem="qPw-9U-Ydk" secondAttribute="trailing" constant="16" id="sma-ao-37r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5W7-DM-VQ1" secondAttribute="trailing" constant="16" id="tnT-d7-Wel"/>
                             <constraint firstItem="ZsZ-21-ZG9" firstAttribute="leading" secondItem="u4p-jm-wIH" secondAttribute="leading" id="ueK-dv-LGh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4l7-nr-98J"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="wXc-xp-xFl" id="eam-Wn-Wji"/>
                         <outlet property="imageView" destination="ZsZ-21-ZG9" id="KbA-36-05K"/>
+                        <outlet property="saveButton" destination="qPw-9U-Ydk" id="9m7-Vf-AIH"/>
+                        <outlet property="shareButton" destination="5W7-DM-VQ1" id="b3m-CK-cZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P74-Uc-gMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4953" y="84"/>
+            <point key="canvasLocation" x="-4857" y="20"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-back-arrow-50.png" width="50" height="50"/>
+        <image name="icons8-downloading-updates-filled-50 (1).png" width="50" height="50"/>
+        <image name="icons8-right-2-50.png" width="50" height="50"/>
+    </resources>
 </document>

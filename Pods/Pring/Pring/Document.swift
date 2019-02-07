@@ -35,9 +35,9 @@ public protocol Document: NSObjectProtocol, Hashable, StorageLinkable, Batchable
 
     var isSaved: Bool { get }
 
-    var rawValue: [AnyHashable: Any] { get }
+    var rawValue: [String: Any] { get }
 
-    var value: [AnyHashable: Any] { get }
+    var value: [String: Any] { get }
 
     var createdAt: Date { set get }
 
@@ -45,7 +45,7 @@ public protocol Document: NSObjectProtocol, Hashable, StorageLinkable, Batchable
 
     var ignore: [String] { get }
 
-    var updateValue: [AnyHashable: Any] { get }
+    var updateValue: [String: Any] { get }
 
     init()
 
@@ -53,7 +53,7 @@ public protocol Document: NSObjectProtocol, Hashable, StorageLinkable, Batchable
 
     init?(snapshot: DocumentSnapshot)
 
-    init(id: String, value: [AnyHashable: Any])
+    init(id: String, value: [String: Any])
 
     // MARK:
 
@@ -344,6 +344,13 @@ public extension Document where Self: Object {
         return self.where(key, isGreaterThanOrEqualTo: isGreaterThanOrEqualTo)
     }
 
+    public static func `where`(_ keyPath: PartialKeyPath<Self>, arrayContains: Any) -> DataSource<Self>.Query {
+        guard let key: String = keyPath._kvcKeyPathString else {
+            fatalError("[Pring.Document] 'keyPath' is not used except for OjbC.")
+        }
+        return self.where(key, arrayContains: arrayContains)
+    }
+
     public static func order(by: PartialKeyPath<Self>) -> DataSource<Self>.Query {
         guard let key: String = by._kvcKeyPathString else {
             fatalError("[Pring.Document] 'keyPath' is not used except for OjbC.")
@@ -378,6 +385,10 @@ public extension Document where Self: Object {
 
     public static func `where`(_ keyPath: String, isGreaterThanOrEqualTo: Any) -> DataSource<Self>.Query {
         return DataSource.Query(self.reference.whereField(keyPath, isGreaterThanOrEqualTo: isGreaterThanOrEqualTo), reference: self.reference)
+    }
+
+    public static func `where`(_ keyPath: String, arrayContains: Any) -> DataSource<Self>.Query {
+        return DataSource.Query(self.reference.whereField(keyPath, arrayContains: arrayContains), reference: self.reference)
     }
 
     public static func order(by: String) -> DataSource<Self>.Query {

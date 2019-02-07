@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import Pring
+import SVProgressHUD
 
 class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -16,7 +17,7 @@ class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet var textField: UITextField!
     
     var pickerView: UIPickerView = UIPickerView()
-    let list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9","10","11","12","13","14","15"]
+    let list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9","10","11","12"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,45 +78,45 @@ class PostViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func backButton(_ sender: Any) {
         back()
-        }
+    }
     
     @IBAction func saveButton(_ sender: Any) {
-        let image: Image = Image()
-        
-        var intNum: Int
-        
-        
         if let textNum = textField.text {
             //textField.text 有る時
-            intNum = Int(textNum)!
+            savePostData(num: Int(textNum)!)
         } else {
             //textField.text がnilの時
             // 入力しろってアラートを出す
-            return showAlert()
+            showAlert()
         }
-        
+    }
+    
+    func savePostData(num: Int) {
+        let image: Image = Image()
         let jpedData = imageView.image?.jpegData(compressionQuality: 1.0)
         let imageFile = File(data: jpedData!, name: nil, mimeType: .jpeg)
         
-//        let newFile: File = File(data: PNG_DATA, mimeType: .png)
-//
-//        let imageX = File(data: UIImageJPEGRepresentation(imageView.image!, 1)!)
-//
-//
-//        File(data: data, name: nil, mimeType: )
-//
-//        let imageData = File(imageView.image)
+        //        let newFile: File = File(data: PNG_DATA, mimeType: .png)
+        //
+        //        let imageX = File(data: UIImageJPEGRepresentation(imageView.image!, 1)!)
+        //
+        //
+        //        File(data: data, name: nil, mimeType: )
+        //
+        //        let imageData = File(imageView.image)
         
         image.imageFile = imageFile
-        image.num = intNum
-        
+        image.num = num
+       
+         // ぐるぐる表示
+        SVProgressHUD.show()
         image.save { (ref, error) in
             if let error = error{
+                SVProgressHUD.showError(withStatus: "どんまい")
                 print("error:", error)
-                
             }else{
                 //save成功
-                self.back()
+                 SVProgressHUD.showSuccess(withStatus: "成功だよ")
                 print("save")
             }
         }

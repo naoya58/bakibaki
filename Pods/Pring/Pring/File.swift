@@ -117,6 +117,9 @@ public final class File: NSObject {
     /// File metadata
     public var metadata: StorageMetadata?
 
+    ///
+    public var additionalData: [String: Any]?
+
     /// File is saved
     public var isSaved: Bool {
         return self.downloadURL != nil
@@ -146,13 +149,16 @@ public final class File: NSObject {
     private var hasExtension: Bool = true
 
     /// File detail value
-    public var value: [AnyHashable: Any] {
-        var value: [AnyHashable: Any] = ["name": self.name]
+    public var value: [String: Any] {
+        var value: [String: Any] = ["name": self.name]
         if let downloadURL: URL = self.downloadURL {
             value["url"] = downloadURL.absoluteString
         }
         if let mimeType: String = self.mimeType?.rawValue {
             value["mimeType"] = mimeType
+        }
+        if let additionalData: [String: Any] = self.additionalData {
+            value["additionalData"] = additionalData
         }
         return value
     }
@@ -195,14 +201,17 @@ public final class File: NSObject {
         self.url = url
     }
 
-    internal convenience init?(property: [AnyHashable: String]) {
-        guard let name: String = property["name"] else { return nil }
+    internal convenience init?(property: [String: Any]) {
+        guard let name: String = property["name"] as? String else { return nil }
         self.init(name: name)
-        if let mimeType: String = property["mimeType"] {
+        if let mimeType: String = property["mimeType"] as? String {
             self.mimeType = MIMEType(rawValue: mimeType)
         }
-        if let downloadURL: String = property["url"] {
+        if let downloadURL: String = property["url"] as? String {
             self._downloadURL = URL(string: downloadURL)
+        }
+        if let additionalData: [String: Any] = property["additionalData"] as? [String: Any] {
+            self.additionalData = additionalData
         }
     }
 

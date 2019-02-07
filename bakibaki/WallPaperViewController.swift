@@ -10,11 +10,17 @@ import UIKit
 import Accounts
 import FirebaseStorage
 import Pring
+//import FontAwesome_swift
 
 class WallPaperViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
+    @IBOutlet var closeButton: UIButton!
+    
+    @IBOutlet var saveButton: UIButton!
+    
+    @IBOutlet var shareButton: UIButton!
     
     var receiveImage: Image?
 
@@ -31,13 +37,28 @@ class WallPaperViewController: UIViewController {
                 print("not found image")
             }
         }
-    
+        
+        //shadow
+        closeButton.btnShadow(radius: 0.8, opacity: 1.6)
+        saveButton.btnShadow(radius: 0.8, opacity: 1.6)
+        shareButton.btnShadow(radius: 0.8, opacity: 1.6)
+        
+        
+//        saveButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .regular)
+//        saveButton.setTitle(String.fontAwesomeIcon(name: .arrowAltCircleDown), for: .normal)
+//
+//        closeButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .regular)
+//        closeButton.setTitle(String.fontAwesomeIcon(name: .angleDoubleLeft), for: .normal)
+//
+//        shareButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .regular)
+//        shareButton.setTitle(String.fontAwesomeIcon(name: .shareSquare), for: .normal)
+        
         
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func SaveButton(_ sender: Any) {
+    @IBAction func tapSaveButton(_ sender: Any) {
 
         // UIImage を取得
         let targetImage = imageView.image!
@@ -70,7 +91,7 @@ class WallPaperViewController: UIViewController {
 
     
     
-    @IBAction func CloseButton(_ sender: Any) {
+    @IBAction func tapCloseButton(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
 
@@ -83,7 +104,7 @@ class WallPaperViewController: UIViewController {
 //        }
     }
     
-    @IBAction func ShareButton(_ sender: Any) {
+    @IBAction func tapShareButton(_ sender: Any) {
         
         // 共有する項目
         let text = ""
